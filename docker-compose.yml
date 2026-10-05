@@ -1,0 +1,40 @@
+# PostgreSQL (+ Mailpit for local email testing) for the Strapi backend.
+# Credentials are read from .env (DATABASE_NAME / DATABASE_USERNAME / DATABASE_PASSWORD / DATABASE_PORT).
+#   docker compose up -d      # start
+#   docker compose down       # stop (data is kept in the named volume)
+# Fixed project/volume names so the data doesn't depend on the folder name.
+name: voltora
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: voltora-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "127.0.0.1:${DATABASE_PORT:-5434}:5432"
+    volumes:
+      - voltora-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Local mail catcher — every email Strapi sends shows up at http://localhost:8025.
+  # Development only: started with `pnpm db:up` (profile "dev"); a plain `docker compose up -d` on the server skips it.
+  mailpit:
+    profiles: ["dev"]
+    image: axllent/mailpit:latest
+    container_name: voltora-mailpit
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+
+volumes:
+  voltora-pgdata:
+    name: voltora-pgdata

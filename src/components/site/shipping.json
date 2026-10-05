@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_site_shippings",
+  "info": { "displayName": "Shipping rules", "icon": "car", "description": "Delivery fee rules used at checkout" },
+  "options": {},
+  "attributes": {
+    "freeThreshold": { "type": "decimal", "required": true, "default": 5000, "min": 0 },
+    "flatRate": { "type": "decimal", "required": true, "default": 250, "min": 0 },
+    "restrictedRegions": { "type": "component", "repeatable": true, "component": "shared.text-item" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_shared_specs",
+  "info": { "displayName": "Spec", "icon": "bulletList", "description": "One row of the product specifications table" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true }
+  }
+}

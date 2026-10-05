@@ -1,0 +1,61 @@
+{
+  "name": "voltora-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Voltora store backend (Strapi 5 + GraphQL)",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "seed": "node scripts/seed.js",
+    "db:up": "docker compose --profile dev up -d",
+    "db:down": "docker compose --profile dev down",
+    "export:server": "bash scripts/export-for-server.sh"
+  },
+  "dependencies": {
+    "@strapi/database": "5.56.0",
+    "@strapi/design-system": "2.2.4",
+    "@strapi/icons": "2.2.4",
+    "@strapi/plugin-graphql": "5.56.0",
+    "@strapi/plugin-users-permissions": "5.56.0",
+    "@strapi/provider-email-nodemailer": "5.56.0",
+    "@strapi/strapi": "5.56.0",
+    "@strapi/utils": "5.56.0",
+    "bwip-js": "^4.11.4",
+    "mime-types": "^2",
+    "pg": "8.20.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.3",
+    "strapi-plugin-rate-limit": "0.4.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "knex": "3.0.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=26.x.x",
+    "npm": ">=6.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "core-js-pure",
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "strapi": {
+    "uuid": "9be9d3fa-7afd-4053-a470-fae3756422f7",
+    "installId": "e8c078aab2bcf2c7d264f69866bdc7724d411102517ff6c6abed26767ccb30af"
+  }
+}

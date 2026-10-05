@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_site_payment_accounts",
+  "info": { "displayName": "Payment account", "icon": "priceTag", "description": "Bank / JazzCash / Easypaisa details shown to customers who pay in advance" },
+  "options": {},
+  "attributes": {
+    "method": { "type": "enumeration", "enum": ["bank", "wallet"], "required": true, "default": "bank" },
+    "provider": { "type": "string", "required": true },
+    "accountTitle": { "type": "string", "required": true },
+    "accountNumber": { "type": "string", "required": true },
+    "iban": { "type": "string" },
+    "instructions": { "type": "text" },
+    "active": { "type": "boolean", "default": true }
+  }
+}

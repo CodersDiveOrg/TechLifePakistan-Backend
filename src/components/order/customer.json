@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_order_customers",
+  "info": { "displayName": "Customer", "icon": "user", "description": "Who placed the order" },
+  "options": {},
+  "attributes": {
+    "fullName": { "type": "string", "required": true },
+    "phone": { "type": "string", "required": true },
+    "email": { "type": "email" }
+  }
+}

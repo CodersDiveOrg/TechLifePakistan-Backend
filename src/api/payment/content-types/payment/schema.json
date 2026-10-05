@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment",
+    "description": "Money received or refunded for an order \u2014 keeps the order payment status up to date"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "payment",
+        "refund"
+      ],
+      "required": true,
+      "default": "payment"
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "method": {
+      "type": "enumeration",
+      "enum": [
+        "cod",
+        "bank",
+        "wallet",
+        "card",
+        "other"
+      ],
+      "required": true,
+      "default": "cod"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "completed",
+        "pending",
+        "failed"
+      ],
+      "required": true,
+      "default": "completed"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    },
+    "receivedAt": {
+      "type": "datetime"
+    },
+    "recordedBy": {
+      "type": "string"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "payments"
+    }
+  }
+}

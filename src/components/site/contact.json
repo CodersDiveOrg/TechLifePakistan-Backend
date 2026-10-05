@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_site_contacts",
+  "info": { "displayName": "Contact details", "icon": "phone", "description": "Phones, email, WhatsApp, address and opening hours" },
+  "options": {},
+  "attributes": {
+    "phones": { "type": "component", "repeatable": true, "component": "shared.text-item" },
+    "email": { "type": "email" },
+    "whatsapp": { "type": "string", "regex": "^[0-9]{10,15}$" },
+    "address": { "type": "text" },
+    "hours": { "type": "string" }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_site_trust_badges",
+  "info": { "displayName": "Trust badge", "icon": "shield", "description": "Badge shown under the hero (icon: shield-check, truck, rotate-ccw, headset)" },
+  "options": {},
+  "attributes": {
+    "icon": { "type": "enumeration", "enum": ["shield_check", "truck", "rotate_ccw", "headset", "battery_charging", "sun"], "default": "shield_check", "required": true },
+    "title": { "type": "string", "required": true },
+    "text": { "type": "string" }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": "Customer orders placed from the storefront"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "orderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "confirmed",
+        "processing",
+        "shipped",
+        "delivered",
+        "cancelled",
+        "returned"
+      ],
+      "default": "pending",
+      "required": true
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "cod",
+        "bank",
+        "wallet"
+      ],
+      "default": "cod",
+      "required": true
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "unpaid",
+        "partially_paid",
+        "paid",
+        "partially_refunded",
+        "refunded"
+      ],
+      "default": "unpaid",
+      "required": true
+    },
+    "customer": {
+      "type": "component",
+      "component": "order.customer",
+      "repeatable": false,
+      "required": true
+    },
+    "shippingAddress": {
+      "type": "component",
+      "component": "order.shipping-address",
+      "repeatable": false,
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "component": "order.item",
+      "repeatable": true,
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "subtotal": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "discount": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "shippingFee": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "shippingMethod": {
+      "type": "string"
+    },
+    "codFee": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "tax": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "taxLabel": {
+      "type": "string"
+    },
+    "taxInclusive": {
+      "type": "boolean",
+      "default": true
+    },
+    "total": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "paidAmount": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "refundedAmount": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "couponCode": {
+      "type": "string"
+    },
+    "trackingNumber": {
+      "type": "string"
+    },
+    "courier": {
+      "type": "string"
+    },
+    "estimatedDelivery": {
+      "type": "date"
+    },
+    "adminNotes": {
+      "type": "text",
+      "private": true
+    },
+    "stockRestored": {
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "cancelReason": {
+      "type": "text"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-event.order-event",
+      "mappedBy": "order"
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment.payment",
+      "mappedBy": "order"
+    }
+  }
+}

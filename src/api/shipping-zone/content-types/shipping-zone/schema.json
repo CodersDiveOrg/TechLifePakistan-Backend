@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipping_zones",
+  "info": {
+    "singularName": "shipping-zone",
+    "pluralName": "shipping-zones",
+    "displayName": "Shipping zone",
+    "description": "Where you deliver. A zone matches by city first, then by province. Higher priority wins when several match."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "provinces": {
+      "type": "component",
+      "component": "shared.text-item",
+      "repeatable": true
+    },
+    "cities": {
+      "type": "component",
+      "component": "shared.text-item",
+      "repeatable": true
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "methods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shipping-method.shipping-method",
+      "mappedBy": "zone"
+    }
+  }
+}

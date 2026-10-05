@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "singularName": "coupon",
+    "pluralName": "coupons",
+    "displayName": "Coupon",
+    "description": "Discount codes customers can apply in the cart (codes must be UPPERCASE)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^[A-Z0-9_-]{3,32}$"
+    },
+    "discountType": {
+      "type": "enumeration",
+      "enum": [
+        "percent",
+        "fixed"
+      ],
+      "default": "percent",
+      "required": true
+    },
+    "value": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "minSubtotal": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "maxDiscount": {
+      "type": "decimal",
+      "min": 0
+    },
+    "startsAt": {
+      "type": "datetime"
+    },
+    "endsAt": {
+      "type": "datetime"
+    },
+    "usageLimit": {
+      "type": "integer",
+      "min": 0
+    },
+    "usedCount": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

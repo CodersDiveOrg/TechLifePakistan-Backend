@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_site_socials",
+  "info": { "displayName": "Social links", "icon": "earth" },
+  "options": {},
+  "attributes": {
+    "facebook": { "type": "string" },
+    "instagram": { "type": "string" },
+    "youtube": { "type": "string" },
+    "tiktok": { "type": "string" }
+  }
+}

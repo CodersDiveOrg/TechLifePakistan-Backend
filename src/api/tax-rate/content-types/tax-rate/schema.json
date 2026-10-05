@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tax_rates",
+  "info": {
+    "singularName": "tax-rate",
+    "pluralName": "tax-rates",
+    "displayName": "Tax rate",
+    "description": "Sales tax by province. \"Inclusive\" = already part of your prices (shown as a breakdown); otherwise it is added at checkout. Leave provinces empty to apply everywhere."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "rate": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "max": 100
+    },
+    "inclusive": {
+      "type": "boolean",
+      "default": true
+    },
+    "appliesToShipping": {
+      "type": "boolean",
+      "default": false
+    },
+    "provinces": {
+      "type": "component",
+      "component": "shared.text-item",
+      "repeatable": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

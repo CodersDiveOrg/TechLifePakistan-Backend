@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_order_shipping_addresses",
+  "info": { "displayName": "Shipping address", "icon": "pinMap", "description": "Where the order is delivered" },
+  "options": {},
+  "attributes": {
+    "province": { "type": "string", "required": true },
+    "city": { "type": "string", "required": true },
+    "address": { "type": "text", "required": true }
+  }
+}

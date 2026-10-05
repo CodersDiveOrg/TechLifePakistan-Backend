@@ -1,0 +1,69 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Store settings",
+    "description": "Store-wide settings: contact details, announcements, shipping rules"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "storeName": {
+      "type": "string",
+      "required": true,
+      "default": "Voltora"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "announcements": {
+      "type": "component",
+      "component": "shared.text-item",
+      "repeatable": true,
+      "required": false
+    },
+    "contact": {
+      "type": "component",
+      "component": "site.contact",
+      "repeatable": false,
+      "required": false
+    },
+    "shipping": {
+      "type": "component",
+      "component": "site.shipping",
+      "repeatable": false,
+      "required": true
+    },
+    "socials": {
+      "type": "component",
+      "component": "site.socials",
+      "repeatable": false,
+      "required": false
+    },
+    "trustBadges": {
+      "type": "component",
+      "component": "site.trust-badge",
+      "repeatable": true,
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": false
+    },
+    "paymentAccounts": {
+      "type": "component",
+      "component": "site.payment-account",
+      "repeatable": true,
+      "required": false
+    }
+  }
+}

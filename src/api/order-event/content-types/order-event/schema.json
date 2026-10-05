@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_events",
+  "info": {
+    "singularName": "order-event",
+    "pluralName": "order-events",
+    "displayName": "Order event",
+    "description": "Timeline of everything that happened to an order (written automatically)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "created",
+        "status",
+        "payment",
+        "refund",
+        "shipping",
+        "note",
+        "email",
+        "cancel"
+      ],
+      "required": true,
+      "default": "note"
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "actor": {
+      "type": "string",
+      "default": "System"
+    },
+    "visibleToCustomer": {
+      "type": "boolean",
+      "default": false
+    },
+    "meta": {
+      "type": "json"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "events"
+    }
+  }
+}

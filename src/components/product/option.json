@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_product_options",
+  "info": {
+    "displayName": "Option",
+    "icon": "bulletList",
+    "description": "An option customers choose, e.g. Voltage or Current (max 3 per product)"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

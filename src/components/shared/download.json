@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_shared_downloads",
+  "info": { "displayName": "Download", "icon": "file", "description": "A downloadable file such as a user manual" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "required": true, "default": "User manual (PDF)" },
+    "file": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["files"] }
+  }
+}

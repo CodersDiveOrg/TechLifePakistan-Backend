@@ -1,0 +1,803 @@
+{
+  "products": [
+    {
+      "name": "MPPT Plus Hybrid Solar Charge Controller EXO-M-100",
+      "model": "EXO-M-100",
+      "price": 9999,
+      "stock": 10,
+      "images": [
+        {
+          "url": "/products/exotech-mppt-hybrid.webp",
+          "alternativeText": "Exotech MPPT Plus Hybrid solar charge controller EXO-M-100",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "url": "/products/exotech-mppt-display.webp",
+          "alternativeText": "LCD and LED status panel of the Exotech hybrid solar charge controller",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "url": "/products/exotech-mppt-wiring-diagram.webp",
+          "alternativeText": "Wiring diagram: solar panels, battery, grid and inverter/UPS connected to the Exotech MPPT",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "tags": [
+        "featured"
+      ],
+      "shortDescription": "Hybrid MPPT solar charge controller with B.M.S — auto 12V/24V, PV input up to 170V, smart solar/grid switching and 3-stage charging.",
+      "description": "## Overview\n\nThe **Exotech MPPT Plus Hybrid EXO-M-100** is a solar charge controller with a built-in B.M.S (Battery Management System). It charges your battery from solar panels and automatically switches to grid power when the sun isn’t enough — so your inverter/UPS always has a charged battery behind it.\n\nIt auto-detects **12V or 24V** battery systems on every start-up and accepts PV input up to **170V**. It includes **solar reverse polarity protection** and stops charging with a “HIGH PV VOLTAGE” warning if the array exceeds 150V.\n\n## Smart solar + grid (hybrid) charging\n\n- **Solar charging mode** — when solar energy is sufficient, the battery is charged from the panels only (yellow LED).\n- **Hybrid charging mode** — when battery capacity falls below 50% or solar is insufficient, grid supply is switched on to assist charging until the battery reaches 100% (blue LED).\n- **Stand-by mode** — if solar is interrupted, the grid charges the battery and the LCD shows “PV INTERRUPTED”.\n\n## 3-stage charging for longer battery life\n\n- **Constant current (CC)** bulk charging\n- **Constant voltage (CV)** absorption charging\n- **Float / trickle** charging — the green LED turns steady and the LCD shows “BATTERY CHARGED”\n\n## Protections\n\n- Battery over-charge protection (cuts off above 15V in 12V mode / 30V in 24V mode)\n- High PV voltage warning and cut-off\n- Solar reverse current protection\n- Over-current and over-heat protection with automatic cooling fan\n- Low battery alarm and indication\n\n## Display & settings\n\nThe LCD shows PV voltage and current, battery voltage and charging current, and warning messages. Four LEDs show solar mode, charging/full, warning and hybrid mode. Battery full, float, solar/hybrid switch-over, DC load on/off and low-battery alarm voltages are all adjustable from the UP / DOWN / ENTER keys.\n\n## Installation notes\n\n- Mount vertically at eye level on a sturdy wall, in a shaded, airy place — not in direct sunlight.\n- Use a DC breaker between the panels and the MPPT, and between the MPPT and the battery.\n- Connect the battery first when installing; disconnect the solar first when removing.\n- For best performance use at least 4 and up to 6 × 550W panels. Wiring should be done by a qualified installer.",
+      "highlights": [
+        "Auto 12V / 24V battery detection",
+        "PV input up to 170V",
+        "Automatic solar ↔ grid hybrid switching",
+        "3-stage charging with built-in B.M.S"
+      ],
+      "downloads": [
+        {
+          "label": "User manual (PDF)",
+          "url": "/manuals/exotech-mppt-hybrid-user-manual.pdf",
+          "size": "6.6 MB"
+        }
+      ],
+      "id": 1,
+      "documentId": "prd-1",
+      "slug": "exotech-mppt-plus-hybrid-solar-charge-controller-exo-m-100",
+      "sku": "EXO-EXO-M-100",
+      "compareAtPrice": null,
+      "category": {
+        "documentId": "cat-mppt",
+        "name": "Solar Charge Controllers",
+        "slug": "solar-charge-controllers"
+      },
+      "brand": {
+        "documentId": "br-exotech",
+        "name": "Exotech",
+        "slug": "exotech"
+      },
+      "specs": [
+        {
+          "label": "Type",
+          "value": "MPPT Plus Hybrid solar charge controller with B.M.S"
+        },
+        {
+          "label": "Battery system",
+          "value": "12V / 24V (auto-detect)"
+        },
+        {
+          "label": "PV input range (12V system)",
+          "value": "30V – 170V"
+        },
+        {
+          "label": "PV input range (24V system)",
+          "value": "60V – 170V"
+        },
+        {
+          "label": "Max. PV power",
+          "value": "1500W (12V) / 3000W (24V)"
+        },
+        {
+          "label": "Charging",
+          "value": "3-stage: CC, CV, float"
+        },
+        {
+          "label": "Hybrid switching",
+          "value": "Solar ↔ grid, automatic (grid assist below 50% battery)"
+        },
+        {
+          "label": "Display",
+          "value": "LCD + 4 status LEDs"
+        },
+        {
+          "label": "Connections",
+          "value": "Solar (+/−), Battery (+/−), Mains AC in (L/N), AC out for inverter/UPS"
+        },
+        {
+          "label": "Dry contact",
+          "value": "1 × NO/C/NC (DC load up to 5A or signal output)"
+        },
+        {
+          "label": "Over-charge cut-off",
+          "value": "15V (12V mode) / 30V (24V mode)"
+        },
+        {
+          "label": "Battery full voltage (default)",
+          "value": "14.6V / 29.2V"
+        },
+        {
+          "label": "Float voltage (default)",
+          "value": "13.8V / 27.6V"
+        },
+        {
+          "label": "Low battery warning (default)",
+          "value": "10.5V / 21.0V"
+        },
+        {
+          "label": "Cooling",
+          "value": "Automatic temperature-controlled fan"
+        },
+        {
+          "label": "Recommended array",
+          "value": "4–6 × 550W panels"
+        },
+        {
+          "label": "High PV voltage cut-off",
+          "value": "150V"
+        },
+        {
+          "label": "Solar reverse polarity protection",
+          "value": "Yes"
+        }
+      ],
+      "rating": 0,
+      "reviewCount": 0,
+      "createdAt": "2026-09-30T00:00:00.000Z"
+    },
+    {
+      "name": "MPPT Plus Hybrid Solar Charge Controller EXO-M-70",
+      "model": "EXO-M-70",
+      "price": 9999,
+      "stock": 10,
+      "images": [
+        {
+          "url": "/products/exotech-mppt-hybrid.webp",
+          "alternativeText": "Exotech MPPT Plus Hybrid solar charge controller EXO-M-70",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "url": "/products/exotech-mppt-display.webp",
+          "alternativeText": "LCD and LED status panel of the Exotech hybrid solar charge controller",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "url": "/products/exotech-mppt-wiring-diagram.webp",
+          "alternativeText": "Wiring diagram: solar panels, battery, grid and inverter/UPS connected to the Exotech MPPT",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "tags": [
+        "featured"
+      ],
+      "shortDescription": "Hybrid MPPT solar charge controller with B.M.S — auto 12V/24V, PV input up to 120V, smart solar/grid switching and 3-stage charging.",
+      "description": "## Overview\n\nThe **Exotech MPPT Plus Hybrid EXO-M-70** is a solar charge controller with a built-in B.M.S (Battery Management System). It charges your battery from solar panels and automatically switches to grid power when the sun isn’t enough — so your inverter/UPS always has a charged battery behind it.\n\nIt auto-detects **12V or 24V** battery systems on every start-up and accepts PV input up to **120V**. It suits smaller arrays and shorter panel strings than the EXO-M-100.\n\n## Smart solar + grid (hybrid) charging\n\n- **Solar charging mode** — when solar energy is sufficient, the battery is charged from the panels only (yellow LED).\n- **Hybrid charging mode** — when battery capacity falls below 50% or solar is insufficient, grid supply is switched on to assist charging until the battery reaches 100% (blue LED).\n- **Stand-by mode** — if solar is interrupted, the grid charges the battery and the LCD shows “PV INTERRUPTED”.\n\n## 3-stage charging for longer battery life\n\n- **Constant current (CC)** bulk charging\n- **Constant voltage (CV)** absorption charging\n- **Float / trickle** charging — the green LED turns steady and the LCD shows “BATTERY CHARGED”\n\n## Protections\n\n- Battery over-charge protection (cuts off above 15V in 12V mode / 30V in 24V mode)\n- High PV voltage warning and cut-off\n- Solar reverse current protection\n- Over-current and over-heat protection with automatic cooling fan\n- Low battery alarm and indication\n\n## Display & settings\n\nThe LCD shows PV voltage and current, battery voltage and charging current, and warning messages. Four LEDs show solar mode, charging/full, warning and hybrid mode. Battery full, float, solar/hybrid switch-over, DC load on/off and low-battery alarm voltages are all adjustable from the UP / DOWN / ENTER keys.\n\n## Installation notes\n\n- Mount vertically at eye level on a sturdy wall, in a shaded, airy place — not in direct sunlight.\n- Use a DC breaker between the panels and the MPPT, and between the MPPT and the battery.\n- Connect the battery first when installing; disconnect the solar first when removing.\n- For best performance use at least 4 and up to 6 × 550W panels. Wiring should be done by a qualified installer.",
+      "highlights": [
+        "Auto 12V / 24V battery detection",
+        "PV input up to 120V",
+        "Automatic solar ↔ grid hybrid switching",
+        "3-stage charging with built-in B.M.S"
+      ],
+      "downloads": [
+        {
+          "label": "User manual (PDF)",
+          "url": "/manuals/exotech-mppt-hybrid-user-manual.pdf",
+          "size": "6.6 MB"
+        }
+      ],
+      "id": 2,
+      "documentId": "prd-2",
+      "slug": "exotech-mppt-plus-hybrid-solar-charge-controller-exo-m-70",
+      "sku": "EXO-EXO-M-70",
+      "compareAtPrice": null,
+      "category": {
+        "documentId": "cat-mppt",
+        "name": "Solar Charge Controllers",
+        "slug": "solar-charge-controllers"
+      },
+      "brand": {
+        "documentId": "br-exotech",
+        "name": "Exotech",
+        "slug": "exotech"
+      },
+      "specs": [
+        {
+          "label": "Type",
+          "value": "MPPT Plus Hybrid solar charge controller with B.M.S"
+        },
+        {
+          "label": "Battery system",
+          "value": "12V / 24V (auto-detect)"
+        },
+        {
+          "label": "PV input range (12V system)",
+          "value": "30V – 120V"
+        },
+        {
+          "label": "PV input range (24V system)",
+          "value": "60V – 120V"
+        },
+        {
+          "label": "Max. PV power",
+          "value": "1500W (12V) / 3000W (24V)"
+        },
+        {
+          "label": "Charging",
+          "value": "3-stage: CC, CV, float"
+        },
+        {
+          "label": "Hybrid switching",
+          "value": "Solar ↔ grid, automatic (grid assist below 50% battery)"
+        },
+        {
+          "label": "Display",
+          "value": "LCD + 4 status LEDs"
+        },
+        {
+          "label": "Connections",
+          "value": "Solar (+/−), Battery (+/−), Mains AC in (L/N), AC out for inverter/UPS"
+        },
+        {
+          "label": "Dry contact",
+          "value": "1 × NO/C/NC (DC load up to 5A or signal output)"
+        },
+        {
+          "label": "Over-charge cut-off",
+          "value": "15V (12V mode) / 30V (24V mode)"
+        },
+        {
+          "label": "Battery full voltage (default)",
+          "value": "14.6V / 29.2V"
+        },
+        {
+          "label": "Float voltage (default)",
+          "value": "13.8V / 27.6V"
+        },
+        {
+          "label": "Low battery warning (default)",
+          "value": "10.5V / 21.0V"
+        },
+        {
+          "label": "Cooling",
+          "value": "Automatic temperature-controlled fan"
+        },
+        {
+          "label": "Recommended array",
+          "value": "4–6 × 550W panels"
+        }
+      ],
+      "rating": 0,
+      "reviewCount": 0,
+      "createdAt": "2026-09-29T00:00:00.000Z"
+    },
+    {
+      "name": "3-Stage Automatic Battery Charger",
+      "price": 9999,
+      "stock": 10,
+      "images": [
+        {
+          "url": "/products/exotech-3-stage-charger-blue.webp",
+          "alternativeText": "Exotech 3-stage automatic battery charger, blue metal enclosure",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "tags": [
+        "featured"
+      ],
+      "shortDescription": "Fully automatic 3-stage battery charger with LED status indicators for charging, trickle charging, battery charged and over-heat.",
+      "description": "## Overview\n\nThe **Exotech 3-Stage Automatic Battery Charger** takes care of your battery on its own: it charges, tops up with a trickle charge and tells you when the battery is full — no manual switching required.\n\n## LED status panel\n\n- **Batt. Charging** (red) — battery at or below 11.2V and charging\n- **Trickle Charging** (yellow) — battery at or above 13.8V, topping up\n- **Battery Charged** (green) — battery at or above 14.2V, fully charged\n- **Over Heated** (red) — temperature warning\n\n## Build\n\n- Rugged wall-mount metal enclosure with silver end caps\n- Sealed cable glands for input and output wiring\n- 100% original Exotech product",
+      "highlights": [
+        "Fully automatic 3-stage charging",
+        "Clear 4-LED status panel",
+        "Over-heat indication",
+        "Wall-mount metal enclosure"
+      ],
+      "id": 3,
+      "documentId": "prd-3",
+      "slug": "exotech-3-stage-automatic-battery-charger",
+      "sku": "EXO-3-STAGE-AUTOMATI",
+      "compareAtPrice": null,
+      "category": {
+        "documentId": "cat-chargers",
+        "name": "Battery Chargers",
+        "slug": "battery-chargers"
+      },
+      "brand": {
+        "documentId": "br-exotech",
+        "name": "Exotech",
+        "slug": "exotech"
+      },
+      "specs": [
+        {
+          "label": "Type",
+          "value": "3-stage automatic battery charger"
+        },
+        {
+          "label": "Battery voltage",
+          "value": "12V"
+        },
+        {
+          "label": "Charging stages",
+          "value": "Charging → trickle charging → charged"
+        },
+        {
+          "label": "Status LEDs",
+          "value": "Over heated, battery charged (≥14.2V), trickle charging (≥13.8V), charging (≤11.2V)"
+        },
+        {
+          "label": "Enclosure",
+          "value": "Wall-mount metal case, blue"
+        }
+      ],
+      "rating": 0,
+      "reviewCount": 0,
+      "createdAt": "2026-09-28T00:00:00.000Z"
+    },
+    {
+      "name": "Digital Battery Charger with LED Display",
+      "price": 9999,
+      "stock": 10,
+      "images": [
+        {
+          "url": "/products/exotech-digital-charger.webp",
+          "alternativeText": "Exotech digital battery charger with red LED display",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "tags": [],
+      "shortDescription": "Battery charger with a bright 3-digit digital display plus charging, AC/DC power and battery-full indicator lights.",
+      "description": "## Overview\n\nThe **Exotech Digital Battery Charger** shows what your battery is doing at a glance on a bright 3-digit LED display, backed by three indicator lights.\n\n## Indicators\n\n- **Digital display** — live charging reading\n- **Charging** (yellow)\n- **AC/DC Power** (red)\n- **Battery Full** (green)\n- Temperature indicator on the front panel\n\n## Build\n\n- Wall-mount metal enclosure in silver-grey\n- Sealed cable glands for input and output wiring\n- 100% original Exotech product",
+      "highlights": [
+        "Bright 3-digit LED display",
+        "Charging / power / full indicators",
+        "Temperature indicator",
+        "Wall-mount metal enclosure"
+      ],
+      "id": 4,
+      "documentId": "prd-4",
+      "slug": "exotech-digital-battery-charger-with-led-display",
+      "sku": "EXO-DIGITAL-BATTERY-",
+      "compareAtPrice": null,
+      "category": {
+        "documentId": "cat-chargers",
+        "name": "Battery Chargers",
+        "slug": "battery-chargers"
+      },
+      "brand": {
+        "documentId": "br-exotech",
+        "name": "Exotech",
+        "slug": "exotech"
+      },
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Digital battery charger"
+        },
+        {
+          "label": "Display",
+          "value": "3-digit red LED display"
+        },
+        {
+          "label": "Indicators",
+          "value": "Charging, AC/DC power, battery full"
+        },
+        {
+          "label": "Enclosure",
+          "value": "Wall-mount metal case, silver-grey"
+        }
+      ],
+      "rating": 0,
+      "reviewCount": 0,
+      "createdAt": "2026-09-27T00:00:00.000Z"
+    },
+    {
+      "name": "Battery Charger with Status & Indicator Panel",
+      "price": 9999,
+      "stock": 10,
+      "images": [
+        {
+          "url": "/products/exotech-status-indicator-charger.webp",
+          "alternativeText": "Exotech battery charger with status and indicator panel",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "tags": [],
+      "shortDescription": "Automatic battery charger with a 4-LED status panel showing charging, trickle charging, battery charged and over-heat.",
+      "description": "## Overview\n\nThe **Exotech Battery Charger with Status & Indicator Panel** gives you a clear view of every charging stage through a dedicated four-light status panel.\n\n## Status panel\n\n- **Batt. Charging** — battery is charging\n- **Trickle Charging** — topping up near full\n- **Battery Charged** — charging complete\n- **Over Heated** — temperature warning\n\n## Build\n\n- Brushed silver wall-mount metal enclosure\n- Sealed cable glands for input and output wiring\n- 100% original Exotech product",
+      "highlights": [
+        "Automatic multi-stage charging",
+        "4-LED status & indicator panel",
+        "Over-heat indication",
+        "Wall-mount metal enclosure"
+      ],
+      "id": 5,
+      "documentId": "prd-5",
+      "slug": "exotech-battery-charger-with-status-indicator-panel",
+      "sku": "EXO-BATTERY-CHARGER-",
+      "compareAtPrice": null,
+      "category": {
+        "documentId": "cat-chargers",
+        "name": "Battery Chargers",
+        "slug": "battery-chargers"
+      },
+      "brand": {
+        "documentId": "br-exotech",
+        "name": "Exotech",
+        "slug": "exotech"
+      },
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Automatic battery charger"
+        },
+        {
+          "label": "Status LEDs",
+          "value": "Over heated, battery charged, trickle charging, charging"
+        },
+        {
+          "label": "Enclosure",
+          "value": "Wall-mount metal case, brushed silver"
+        }
+      ],
+      "rating": 0,
+      "reviewCount": 0,
+      "createdAt": "2026-09-26T00:00:00.000Z"
+    },
+    {
+      "name": "SH 30A 12 Volt Battery Charger",
+      "model": "SH 30A",
+      "price": 9999,
+      "stock": 10,
+      "images": [
+        {
+          "url": "/products/sencor-sh-30a-charger.webp",
+          "alternativeText": "Sencor SH 30A 12 volt battery charger with dual digital display",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "tags": [
+        "featured"
+      ],
+      "shortDescription": "30A, 12V battery charger with dual digital displays showing mains and charging current, plus charging/full indication.",
+      "description": "## Overview\n\nThe **Sencor SH 30A** is a 12 volt battery charger rated at 30 amps, with two digital displays so you can see both the mains and the charging current at the same time.\n\n## Dual digital display\n\n- **Main** — mains current reading (amps)\n- **CHG / FUL** — charging current and battery-full indication (amps)\n\n## Build\n\n- Heavy-duty yellow metal enclosure with black end caps\n- Screw-fixed front panel",
+      "highlights": [
+        "30A charging current",
+        "For 12V batteries",
+        "Dual digital amp displays",
+        "Heavy-duty metal enclosure"
+      ],
+      "id": 6,
+      "documentId": "prd-6",
+      "slug": "sencor-sh-30a-12-volt-battery-charger",
+      "sku": "SEN-SH-30A",
+      "compareAtPrice": null,
+      "category": {
+        "documentId": "cat-chargers",
+        "name": "Battery Chargers",
+        "slug": "battery-chargers"
+      },
+      "brand": {
+        "documentId": "br-sencor",
+        "name": "Sencor",
+        "slug": "sencor"
+      },
+      "specs": [
+        {
+          "label": "Model",
+          "value": "SH 30A"
+        },
+        {
+          "label": "Battery voltage",
+          "value": "12V"
+        },
+        {
+          "label": "Charging current",
+          "value": "30A"
+        },
+        {
+          "label": "Display",
+          "value": "Dual digital display (main amps / charging amps)"
+        },
+        {
+          "label": "Indicators",
+          "value": "Main, charging / full"
+        },
+        {
+          "label": "Enclosure",
+          "value": "Metal case, yellow"
+        }
+      ],
+      "rating": 0,
+      "reviewCount": 0,
+      "createdAt": "2026-09-25T00:00:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "documentId": "cat-mppt",
+      "name": "Solar Charge Controllers",
+      "slug": "solar-charge-controllers",
+      "icon": "sun",
+      "description": "Exotech MPPT Plus Hybrid solar charge controllers with built-in battery management and smart solar/grid switching.",
+      "image": {
+        "url": "/products/exotech-mppt-hybrid.webp",
+        "alternativeText": "Exotech MPPT Plus Hybrid solar charge controller"
+      },
+      "children": [
+        {
+          "documentId": "sub-mppt-hybrid",
+          "name": "MPPT Hybrid Controllers",
+          "slug": "mppt-hybrid"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "documentId": "cat-chargers",
+      "name": "Battery Chargers",
+      "slug": "battery-chargers",
+      "icon": "battery-charging",
+      "description": "Automatic 12V battery chargers with LED status indicators and digital displays for UPS, solar and automotive batteries.",
+      "image": {
+        "url": "/products/exotech-3-stage-charger-blue.webp",
+        "alternativeText": "Exotech 3-stage automatic battery charger"
+      },
+      "children": [
+        {
+          "documentId": "sub-3-stage-automatic",
+          "name": "3-Stage Automatic",
+          "slug": "3-stage-automatic"
+        },
+        {
+          "documentId": "sub-digital-display",
+          "name": "Digital Display",
+          "slug": "digital-display"
+        }
+      ]
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "documentId": "br-exotech",
+      "name": "Exotech",
+      "slug": "exotech"
+    },
+    {
+      "id": 2,
+      "documentId": "br-sencor",
+      "name": "Sencor",
+      "slug": "sencor"
+    }
+  ],
+  "heroBanners": [
+    {
+      "id": 1,
+      "documentId": "hero-1",
+      "eyebrow": "Exotech MPPT Plus Hybrid",
+      "title": "Solar first. Grid when you need it.",
+      "subtitle": "Hybrid MPPT charge controllers with built-in B.M.S that switch between solar and grid automatically.",
+      "cta": {
+        "label": "Shop MPPT Controllers",
+        "href": "/category/solar-charge-controllers"
+      },
+      "image": {
+        "url": "/products/exotech-mppt-hybrid.webp",
+        "alternativeText": "Exotech MPPT Plus Hybrid solar charge controller"
+      },
+      "theme": "dark"
+    },
+    {
+      "id": 2,
+      "documentId": "hero-2",
+      "eyebrow": "Load-shedding? Sorted.",
+      "title": "Chargers that know when to stop",
+      "subtitle": "Fully automatic 3-stage battery chargers with clear LED status — charging, trickle and fully charged.",
+      "cta": {
+        "label": "Shop Battery Chargers",
+        "href": "/category/battery-chargers"
+      },
+      "image": {
+        "url": "/products/exotech-3-stage-charger-blue.webp",
+        "alternativeText": "Exotech 3-stage automatic battery charger"
+      },
+      "theme": "primary"
+    },
+    {
+      "id": 3,
+      "documentId": "hero-3",
+      "eyebrow": "Sencor SH 30A",
+      "title": "30 amps of 12V charging power",
+      "subtitle": "Dual digital displays show mains and charging current at a glance.",
+      "cta": {
+        "label": "View SH 30A",
+        "href": "/product/sencor-sh-30a-12-volt-battery-charger"
+      },
+      "image": {
+        "url": "/products/sencor-sh-30a-charger.webp",
+        "alternativeText": "Sencor SH 30A 12 volt battery charger"
+      },
+      "theme": "accent"
+    }
+  ],
+  "promoBanners": [
+    {
+      "id": 11,
+      "documentId": "promo-1",
+      "eyebrow": "Solar + grid",
+      "title": "MPPT Plus Hybrid controllers",
+      "cta": {
+        "label": "Shop now",
+        "href": "/category/solar-charge-controllers"
+      },
+      "image": {
+        "url": "/products/exotech-mppt-hybrid.webp",
+        "alternativeText": "Exotech MPPT controller"
+      },
+      "theme": "dark"
+    },
+    {
+      "id": 12,
+      "documentId": "promo-2",
+      "eyebrow": "Digital & automatic",
+      "title": "Battery chargers for every setup",
+      "cta": {
+        "label": "Shop now",
+        "href": "/category/battery-chargers"
+      },
+      "image": {
+        "url": "/products/sencor-sh-30a-charger.webp",
+        "alternativeText": "Sencor SH 30A battery charger"
+      },
+      "theme": "accent"
+    }
+  ],
+  "faqs": [
+    {
+      "group": "Orders & payment",
+      "items": [
+        [
+          "How do I place an order?",
+          "Add products to your cart and checkout with your name, phone and address. You can also order directly on WhatsApp from any product page."
+        ],
+        [
+          "Do you offer Cash on Delivery?",
+          "Yes — COD is available across Pakistan (except restricted regions). You can also pay by bank transfer or JazzCash/Easypaisa."
+        ],
+        [
+          "Can I change or cancel my order?",
+          "Yes, before it’s dispatched. Call or WhatsApp us with your order number and we’ll update it."
+        ]
+      ]
+    },
+    {
+      "group": "Delivery",
+      "items": [
+        [
+          "How long does delivery take?",
+          "2–3 working days in major cities and 3–5 working days elsewhere."
+        ],
+        [
+          "How much is shipping?",
+          "Free on orders above Rs. 5,000. A flat Rs. 250 applies below that."
+        ],
+        [
+          "Which areas do you deliver to?",
+          "All of Pakistan except Balochistan and Azad Kashmir at the moment."
+        ]
+      ]
+    },
+    {
+      "group": "Warranty & returns",
+      "items": [
+        [
+          "Are your products genuine?",
+          "100%. We source directly from brands and authorised distributors, and every product ships with its official warranty card."
+        ],
+        [
+          "How do I claim warranty?",
+          "Contact us with your order number and a short video of the issue. We’ll arrange repair or replacement per the brand’s warranty terms."
+        ],
+        [
+          "What is your return policy?",
+          "Unused products in original packaging can be returned or exchanged within 3 days of delivery."
+        ]
+      ]
+    }
+  ],
+  "policies": {
+    "privacy": {
+      "title": "Privacy policy",
+      "body": [
+        "We collect only the information needed to process your order — name, phone, email and delivery address.",
+        "Your data is never sold or shared with third parties except courier partners for delivery.",
+        "You can request deletion of your account data at any time by contacting support."
+      ]
+    },
+    "delivery": {
+      "title": "Delivery policy",
+      "body": [
+        "Orders are dispatched within 24 hours on working days.",
+        "Delivery takes 2–5 working days depending on your city.",
+        "Free delivery on orders above Rs. 5,000; otherwise a flat Rs. 250 applies.",
+        "We currently do not deliver to Balochistan and Azad Kashmir."
+      ]
+    },
+    "returns": {
+      "title": "Refund & returns",
+      "body": [
+        "Unused products in original packaging can be returned within 3 days of delivery.",
+        "Refunds are processed within 5–7 working days after the returned item passes inspection.",
+        "Warranty claims for manufacturing defects are handled per the brand’s warranty terms."
+      ]
+    },
+    "terms": {
+      "title": "Terms & conditions",
+      "body": [
+        "Prices and availability are subject to change without notice.",
+        "Orders are confirmed only after verification by phone or WhatsApp.",
+        "By placing an order you agree to our delivery, returns and privacy policies."
+      ]
+    }
+  },
+  "site": {
+    "name": "Voltora",
+    "tagline": "Solar controllers & battery chargers.",
+    "description": "Genuine Exotech MPPT Plus Hybrid solar charge controllers and automatic battery chargers — with cash on delivery and nationwide shipping across Pakistan.",
+    "url": "http://localhost:3000",
+    "currency": {
+      "code": "PKR",
+      "symbol": "Rs."
+    },
+    "contact": {
+      "phones": [
+        "+92 300 1234567",
+        "(021) 3456 7890"
+      ],
+      "email": "sales@voltora.pk",
+      "whatsapp": "923001234567",
+      "address": "Shop 12, Electronics Market, Saddar, Karachi, Pakistan",
+      "hours": "Mon – Sat, 10:00am – 8:00pm"
+    },
+    "announcements": [
+      "Free delivery on orders above Rs. 5,000 — nationwide",
+      "Cash on Delivery available across Pakistan",
+      "100% original Exotech & Sencor products"
+    ],
+    "shipping": {
+      "freeThreshold": 5000,
+      "flatRate": 250,
+      "restrictedRegions": [
+        "Balochistan",
+        "Azad Kashmir"
+      ]
+    },
+    "socials": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "youtube": "https://youtube.com",
+      "tiktok": "https://tiktok.com"
+    },
+    "trustBadges": [
+      {
+        "icon": "shield-check",
+        "title": "Genuine Products",
+        "text": "100% original, sourced direct"
+      },
+      {
+        "icon": "truck",
+        "title": "Fast Delivery",
+        "text": "2–5 working days nationwide"
+      },
+      {
+        "icon": "rotate-ccw",
+        "title": "Easy Returns",
+        "text": "3-day money-back / exchange"
+      },
+      {
+        "icon": "headset",
+        "title": "Expert Support",
+        "text": "Dedicated help, 7 days a week"
+      }
+    ]
+  }
+}

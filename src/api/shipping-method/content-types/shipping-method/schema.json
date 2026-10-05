@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipping_methods",
+  "info": {
+    "singularName": "shipping-method",
+    "pluralName": "shipping-methods",
+    "displayName": "Shipping method",
+    "description": "A delivery option within a zone \u2014 price, free-shipping threshold, delivery estimate and optional COD fee."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "Standard delivery"
+    },
+    "description": {
+      "type": "string"
+    },
+    "estimate": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "decimal",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "freeOver": {
+      "type": "decimal",
+      "min": 0
+    },
+    "codFee": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "minOrder": {
+      "type": "decimal",
+      "min": 0
+    },
+    "maxOrder": {
+      "type": "decimal",
+      "min": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "zone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shipping-zone.shipping-zone",
+      "inversedBy": "methods"
+    }
+  }
+}
