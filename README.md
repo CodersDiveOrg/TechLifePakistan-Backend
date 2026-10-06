@@ -155,12 +155,8 @@ storefront's `.env.local`. Publishing content refreshes the store immediately.
 | `EMAIL_FROM`, `EMAIL_REPLY_TO`, `STORE_NOTIFY_EMAIL` | sender, reply-to, and where new-order alerts go |
 | `RATE_LIMIT_PER_MINUTE`, `RATE_LIMIT_GRAPHQL_PER_MINUTE`, `RATE_LIMIT_ALLOW_IPS` | rate-limit tuning; allowlist = the storefront server's IPs |
 
-## Deploying to a Hostinger VPS (outline)
+## Deploying to a Hostinger VPS
 
-1. Ubuntu VPS (KVM 2 / 8 GB recommended) with Node 20+, pnpm, Docker (for Postgres) or native PostgreSQL, Nginx, and PM2.
-2. Clone the repo, create `.env` (from `.env.example`) with **new** secrets and production DB credentials, then
-   `pnpm install --prod=false && NODE_ENV=production pnpm build`.
-3. `pnpm db:up` (or point `DATABASE_*` at a managed Postgres), then `NODE_ENV=production pm2 start "pnpm start" --name voltora-api`.
-4. Nginx: `admin.yourstore.pk` → `127.0.0.1:1337` with the `CF-Connecting-IP` header shown above (set `PUBLIC_URL=https://admin.yourstore.pk`, `IS_PROXIED=true`), HTTPS via Certbot. Set the real `SMTP_*` values — Mailpit is for local development only.
-5. Run `pnpm seed` once, or migrate the local database with `pnpm strapi transfer` / `strapi export` + `import`.
-6. Uploaded media lives in `public/uploads` — back it up together with the database.
+Step-by-step guide: **[DEPLOY.md](DEPLOY.md)** — server setup, `.env`, Postgres, copying your local data
+(`pnpm export:server` → `scripts/restore-on-server.sh`), PM2 (`ecosystem.config.cjs`), Nginx + HTTPS
+(`deploy/nginx-api.conf`), rate-limit allowlist, updates and backups.
