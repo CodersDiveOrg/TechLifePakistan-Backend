@@ -25,6 +25,16 @@ export function referralExtension(strapi: Core.Strapi) {
         qualifyOn: String!
         rewardText: String!
         terms: String
+        popup: ReferralPopup!
+      }
+      "Marketing popup shown to storefront visitors while the program runs."
+      type ReferralPopup {
+        enabled: Boolean!
+        title: String
+        text: String
+        delaySeconds: Int!
+        "Show again to the same visitor after this many days (0 = on every page load)"
+        frequencyDays: Int!
       }
       type ReferralFriend {
         "First name or masked email of the invited friend"
@@ -77,7 +87,7 @@ export function referralExtension(strapi: Core.Strapi) {
       Query: {
         referralProgram: async () => {
           const p = await getReferralProgram(strapi);
-          return { enabled: p.enabled, referralsRequired: p.referralsRequired, qualifyOn: p.qualifyOn, rewardText: describeReward(p), terms: p.terms };
+          return { enabled: p.enabled, referralsRequired: p.referralsRequired, qualifyOn: p.qualifyOn, rewardText: describeReward(p), terms: p.terms, popup: p.popup };
         },
         myReferrals: (_: unknown, __: unknown, ctx: Ctx) => referralSummary(strapi, userId(ctx)),
       },

@@ -71,6 +71,11 @@ const LABELS: Record<string, string> = {
   rewardValue: 'Reward value',
   rewardValidDays: 'Reward valid for (days)',
   repeatable: 'Repeatable (a new reward every N friends)',
+  popupEnabled: 'Show popup to visitors',
+  popupTitle: 'Popup title',
+  popupText: 'Popup message',
+  popupDelaySeconds: 'Popup delay (seconds)',
+  popupFrequencyDays: 'Show popup again after (days)',
 };
 
 /** Help text under fields in the edit view. */
@@ -86,6 +91,11 @@ const DESCRIPTIONS: Record<string, Record<string, string>> = {
     rewardValidDays: 'Reward coupons expire after this many days. Leave empty for no expiry.',
     repeatable: 'On: a new reward every N friends (5, 10, 15…). Off: one reward only.',
     terms: 'Optional terms shown to customers under the referral link.',
+    popupEnabled: 'Show a “Refer & earn” popup to store visitors (only while the program is enabled; never on cart, checkout, account or sign-in pages).',
+    popupTitle: 'Optional popup headline. Default: “Invite friends, get <reward>”.',
+    popupText: 'Optional popup message. Default: explains how many friends are needed.',
+    popupDelaySeconds: 'Seconds after a visitor lands before the popup opens.',
+    popupFrequencyDays: '0 = show on every page load / reload. Otherwise, wait this many days before showing it to the same visitor again.',
   },
   'api::coupon.coupon': {
     owner: 'Optional. When set, only this customer can use the coupon (referral rewards are created this way).',
@@ -96,7 +106,7 @@ const DESCRIPTIONS: Record<string, Record<string, string>> = {
 /** Applies the list layouts once (marker stored in the core store) so later admin tweaks are kept. */
 export async function applyAdminLayouts(strapi: Core.Strapi) {
   const store = strapi.store({ type: 'app', name: 'techlifepakistan' });
-  const VERSION = 4;
+  const VERSION = 6;
   if ((await store.get({ key: 'admin-layouts-version' })) === VERSION) return;
 
   const service = strapi.plugin('content-manager').service('content-types');

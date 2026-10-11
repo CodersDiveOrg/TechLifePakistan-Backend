@@ -1245,6 +1245,33 @@ export interface ApiReferralProgramReferralProgram
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    popupDelaySeconds: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 120;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    popupEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    popupFrequencyDays: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 365;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    popupText: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    popupTitle: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     qualifyOn: Schema.Attribute.Enumeration<
       ['first_delivered_order', 'signup']

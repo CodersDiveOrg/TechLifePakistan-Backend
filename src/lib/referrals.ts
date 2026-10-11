@@ -34,6 +34,7 @@ export interface ReferralProgram {
   rewardValidDays: number | null;
   repeatable: boolean;
   terms: string | null;
+  popup: { enabled: boolean; title: string | null; text: string | null; delaySeconds: number; frequencyDays: number };
 }
 
 const randomCode = (length: number) => Array.from({ length }, () => ALPHABET[randomInt(ALPHABET.length)]).join('');
@@ -52,6 +53,13 @@ export async function getReferralProgram(strapi: Core.Strapi): Promise<ReferralP
     rewardValidDays: p?.rewardValidDays ? Number(p.rewardValidDays) : null,
     repeatable: p?.repeatable !== false,
     terms: p?.terms ?? null,
+    popup: {
+      enabled: p?.popupEnabled !== false,
+      title: p?.popupTitle || null,
+      text: p?.popupText || null,
+      delaySeconds: Number(p?.popupDelaySeconds ?? 5),
+      frequencyDays: Math.max(0, Number(p?.popupFrequencyDays ?? 0)),
+    },
   };
 }
 

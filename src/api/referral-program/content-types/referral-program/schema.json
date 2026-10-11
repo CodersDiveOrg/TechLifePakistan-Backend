@@ -66,6 +66,30 @@
     },
     "terms": {
       "type": "text"
+    },
+    "popupEnabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "popupTitle": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "popupText": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "popupDelaySeconds": {
+      "type": "integer",
+      "default": 5,
+      "min": 0,
+      "max": 120
+    },
+    "popupFrequencyDays": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 365
     }
   }
 }
