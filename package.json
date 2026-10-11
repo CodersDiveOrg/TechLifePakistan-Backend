@@ -1,8 +1,8 @@
 {
-  "name": "voltora-backend",
+  "name": "techlifepakistan-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "Voltora store backend (Strapi 5 + GraphQL)",
+  "description": "Tech Life Pakistan store backend (Strapi 5 + GraphQL)",
   "scripts": {
     "build": "strapi build",
     "console": "strapi console",

@@ -15,7 +15,7 @@
     "storeName": {
       "type": "string",
       "required": true,
-      "default": "Voltora"
+      "default": "Tech Life Pakistan"
     },
     "tagline": {
       "type": "string"

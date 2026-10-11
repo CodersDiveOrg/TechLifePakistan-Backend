@@ -1,4 +1,4 @@
-# Voltora backend — Strapi 5 + GraphQL + PostgreSQL
+# Tech Life Pakistan backend — Strapi 5 + GraphQL + PostgreSQL
 
 Headless e-commerce backend for the Next.js storefront (separate repository: `Shahzaib`). Admins manage products,
 orders, coupons, banners and store settings in the Strapi dashboard; the storefront talks to it over GraphQL.

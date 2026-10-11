@@ -64,7 +64,7 @@ const LABELS: Record<string, string> = {
 
 /** Applies the list layouts once (marker stored in the core store) so later admin tweaks are kept. */
 export async function applyAdminLayouts(strapi: Core.Strapi) {
-  const store = strapi.store({ type: 'app', name: 'voltora' });
+  const store = strapi.store({ type: 'app', name: 'techlifepakistan' });
   const VERSION = 3;
   if ((await store.get({ key: 'admin-layouts-version' })) === VERSION) return;
 

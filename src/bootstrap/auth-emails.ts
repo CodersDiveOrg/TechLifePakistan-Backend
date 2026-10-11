@@ -6,7 +6,7 @@ import type { Core } from '@strapi/strapi';
  * Settings → Users & Permissions → Email templates / Advanced settings are kept.
  */
 export async function configureAuthEmails(strapi: Core.Strapi) {
-  const marker = strapi.store({ type: 'app', name: 'voltora' });
+  const marker = strapi.store({ type: 'app', name: 'techlifepakistan' });
   const VERSION = 1;
   const storefront = (process.env.STOREFRONT_URL ?? 'http://localhost:3000').replace(/\/$/, '');
   const up = strapi.store({ type: 'plugin', name: 'users-permissions' });
@@ -22,9 +22,9 @@ export async function configureAuthEmails(strapi: Core.Strapi) {
     return;
   }
 
-  const fromHeader = process.env.EMAIL_FROM ?? 'Voltora Store <orders@voltora.pk>';
+  const fromHeader = process.env.EMAIL_FROM ?? 'Tech Life Pakistan <orders@techlifepakistan.pk>';
   const match = fromHeader.match(/^(.*)<(.+)>$/);
-  const from = { name: (match?.[1] ?? 'Voltora Store').trim(), email: (match?.[2] ?? fromHeader).trim() };
+  const from = { name: (match?.[1] ?? 'Tech Life Pakistan').trim(), email: (match?.[2] ?? fromHeader).trim() };
 
   const advanced = ((await up.get({ key: 'advanced' })) ?? {}) as Record<string, unknown>;
   await up.set({ key: 'advanced', value: { ...advanced, email_reset_password: `${storefront}/reset-password` } });

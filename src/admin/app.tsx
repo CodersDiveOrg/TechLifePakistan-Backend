@@ -38,9 +38,9 @@ export default {
     },
     translations: {
       en: {
-        'Auth.form.welcome.title': 'Voltora Store Admin',
+        'Auth.form.welcome.title': 'Tech Life Pakistan Admin',
         'Auth.form.welcome.subtitle': 'Sign in to manage products, orders and content',
-        'app.components.LeftMenu.navbrand.title': 'Voltora',
+        'app.components.LeftMenu.navbrand.title': 'Tech Life Pakistan',
         'app.components.LeftMenu.navbrand.workplace': 'Store dashboard',
         'app.components.HomePage.welcomeBlock.content.again': 'Here’s what’s happening in your store today.',
       },
@@ -54,7 +54,7 @@ export default {
     app.addMenuLink({
       to: 'orders-manager',
       icon: Archive,
-      intlLabel: { id: 'voltora.menu.orders', defaultMessage: 'Orders' },
+      intlLabel: { id: 'techlifepakistan.menu.orders', defaultMessage: 'Orders' },
       permissions: [{ action: 'plugin::content-manager.explorer.read', subject: 'api::order.order' }],
       position: 2,
       Component: () => import('./pages/orders'),
@@ -64,15 +64,15 @@ export default {
       {
         id: 'store-overview',
         icon: ChartPie,
-        title: { id: 'voltora.widget.overview', defaultMessage: 'Store overview' },
+        title: { id: 'techlifepakistan.widget.overview', defaultMessage: 'Store overview' },
         component: async () => (await import('./widgets/OverviewWidget')).default,
       },
       {
         id: 'recent-orders',
         icon: ShoppingCart,
-        title: { id: 'voltora.widget.orders', defaultMessage: 'Recent orders' },
+        title: { id: 'techlifepakistan.widget.orders', defaultMessage: 'Recent orders' },
         link: {
-          label: { id: 'voltora.widget.orders.link', defaultMessage: 'All orders' },
+          label: { id: 'techlifepakistan.widget.orders.link', defaultMessage: 'All orders' },
           href: '/orders-manager',
         },
         component: async () => (await import('./widgets/RecentOrdersWidget')).default,
@@ -80,9 +80,9 @@ export default {
       {
         id: 'low-stock',
         icon: BulletList,
-        title: { id: 'voltora.widget.stock', defaultMessage: 'Low stock' },
+        title: { id: 'techlifepakistan.widget.stock', defaultMessage: 'Low stock' },
         link: {
-          label: { id: 'voltora.widget.stock.link', defaultMessage: 'All products' },
+          label: { id: 'techlifepakistan.widget.stock.link', defaultMessage: 'All products' },
           href: '/content-manager/collection-types/api::product.product',
         },
         component: async () => (await import('./widgets/LowStockWidget')).default,
@@ -90,7 +90,7 @@ export default {
       {
         id: 'quick-actions',
         icon: Lightning,
-        title: { id: 'voltora.widget.actions', defaultMessage: 'Quick actions' },
+        title: { id: 'techlifepakistan.widget.actions', defaultMessage: 'Quick actions' },
         component: async () => (await import('./widgets/QuickActionsWidget')).default,
       },
     ]);

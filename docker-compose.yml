@@ -3,12 +3,12 @@
 #   docker compose up -d      # start
 #   docker compose down       # stop (data is kept in the named volume)
 # Fixed project/volume names so the data doesn't depend on the folder name.
-name: voltora
+name: techlifepakistan
 
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: voltora-postgres
+    container_name: techlifepakistan-postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
@@ -17,7 +17,7 @@ services:
     ports:
       - "127.0.0.1:${DATABASE_PORT:-5434}:5432"
     volumes:
-      - voltora-pgdata:/var/lib/postgresql/data
+      - techlifepakistan-pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 5s
@@ -29,12 +29,12 @@ services:
   mailpit:
     profiles: ["dev"]
     image: axllent/mailpit:latest
-    container_name: voltora-mailpit
+    container_name: techlifepakistan-mailpit
     restart: unless-stopped
     ports:
       - "127.0.0.1:1025:1025"
       - "127.0.0.1:8025:8025"
 
 volumes:
-  voltora-pgdata:
-    name: voltora-pgdata
+  techlifepakistan-pgdata:
+    name: techlifepakistan-pgdata

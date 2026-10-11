@@ -46,7 +46,7 @@ async function storeInfo(strapi: Core.Strapi) {
   const g = await strapi.documents('api::global.global').findFirst({ populate: { contact: { populate: ['phones'] } } });
   const contact = g?.contact as { email?: string; whatsapp?: string; phones?: { text: string }[] } | undefined;
   return {
-    name: (g?.storeName as string) || 'Voltora',
+    name: (g?.storeName as string) || 'Tech Life Pakistan',
     email: contact?.email ?? '',
     phone: contact?.phones?.[0]?.text ?? '',
     whatsapp: contact?.whatsapp ?? '',

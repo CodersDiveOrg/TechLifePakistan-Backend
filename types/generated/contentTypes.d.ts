@@ -770,7 +770,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     socials: Schema.Attribute.Component<'site.socials', false>;
     storeName: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Voltora'>;
+      Schema.Attribute.DefaultTo<'Tech Life Pakistan'>;
     tagline: Schema.Attribute.String;
     trustBadges: Schema.Attribute.Component<'site.trust-badge', true>;
     updatedAt: Schema.Attribute.DateTime;

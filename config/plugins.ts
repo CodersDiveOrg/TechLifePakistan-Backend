@@ -58,8 +58,8 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
         ...(env('SMTP_USERNAME') ? { auth: { user: env('SMTP_USERNAME'), pass: env('SMTP_PASSWORD') } } : {}),
       },
       settings: {
-        defaultFrom: env('EMAIL_FROM', 'Voltora Store <orders@voltora.pk>'),
-        defaultReplyTo: env('EMAIL_REPLY_TO', 'sales@voltora.pk'),
+        defaultFrom: env('EMAIL_FROM', 'Tech Life Pakistan <orders@techlifepakistan.pk>'),
+        defaultReplyTo: env('EMAIL_REPLY_TO', 'sales@techlifepakistan.pk'),
       },
     },
   },
