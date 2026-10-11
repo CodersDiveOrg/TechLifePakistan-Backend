@@ -5,6 +5,7 @@ import { sendPaymentSubmittedAlert } from '../lib/emails';
 import { createOrderManager } from '../lib/order-manager';
 import { customerExtension } from './customer';
 import { otpExtension } from './otp';
+import { referralExtension } from './referral';
 import { quote } from '../lib/pricing';
 import { getShippingRules } from '../lib/store-settings';
 
@@ -37,6 +38,9 @@ export function registerGraphQL(strapi: Core.Strapi) {
   // Never expose orders or coupon codes through generic CRUD.
   ext.shadowCRUD('api::order.order').disable();
   ext.shadowCRUD('api::coupon.coupon').disable();
+  // Referral records and settings are served through the purpose-built operations in ./referral.
+  ext.shadowCRUD('api::referral.referral').disable();
+  ext.shadowCRUD('api::referral-program.referral-program').disable();
   // Internal records — shipping/tax are applied server-side, timelines and payments shown via custom fields.
   for (const uid of ['api::shipping-zone.shipping-zone', 'api::shipping-method.shipping-method', 'api::tax-rate.tax-rate', 'api::order-event.order-event', 'api::payment.payment', 'api::address.address']) {
     ext.shadowCRUD(uid).disable();
@@ -51,6 +55,7 @@ export function registerGraphQL(strapi: Core.Strapi) {
 
   ext.use(() => customerExtension(strapi));
   ext.use(() => otpExtension(strapi));
+  ext.use(() => referralExtension(strapi));
 
   ext.use(() => ({
     typeDefs: /* GraphQL */ `
@@ -222,12 +227,12 @@ export function registerGraphQL(strapi: Core.Strapi) {
     `,
     resolvers: {
       Query: {
-        checkoutQuote: async (_: unknown, { input }: { input: { items: PlaceOrderInput['items']; province: string; city?: string; couponCode?: string; shippingMethodId?: string; paymentMethod?: string } }) => {
+        checkoutQuote: async (_: unknown, { input }: { input: { items: PlaceOrderInput['items']; province: string; city?: string; couponCode?: string; shippingMethodId?: string; paymentMethod?: string } }, ctx: GqlContext) => {
           const subtotal = await strapi.service('api::order.order').priceCart(input.items ?? []);
           let discount = 0;
           let couponMessage: string | null = null;
           if (input.couponCode?.trim()) {
-            const c = await strapi.service('api::coupon.coupon').evaluate(input.couponCode, subtotal);
+            const c = await strapi.service('api::coupon.coupon').evaluate(input.couponCode, subtotal, await optionalUserId(ctx));
             discount = c.valid ? c.discount : 0;
             couponMessage = c.message;
           }
@@ -249,8 +254,8 @@ export function registerGraphQL(strapi: Core.Strapi) {
             deliverable: !restricted && !!q.method,
           };
         },
-        validateCoupon: async (_: unknown, args: { code: string; subtotal: number }) => {
-          const { couponId: _id, ...result } = await strapi.service('api::coupon.coupon').evaluate(args.code, args.subtotal);
+        validateCoupon: async (_: unknown, args: { code: string; subtotal: number }, ctx: GqlContext) => {
+          const { couponId: _id, ...result } = await strapi.service('api::coupon.coupon').evaluate(args.code, args.subtotal, await optionalUserId(ctx));
           return result;
         },
         trackOrder: async (_: unknown, args: { orderNumber: string; phone: string }) => {

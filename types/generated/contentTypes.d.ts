@@ -635,7 +635,7 @@ export interface ApiContactMessageContactMessage
 export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
   collectionName: 'coupons';
   info: {
-    description: 'Discount codes customers can apply in the cart (codes must be UPPERCASE)';
+    description: "Discount codes customers can apply in the cart (codes must be UPPERCASE). A coupon with an Owner only works for that customer's account.";
     displayName: 'Coupon';
     pluralName: 'coupons';
     singularName: 'coupon';
@@ -676,7 +676,13 @@ export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    owner: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    source: Schema.Attribute.Enumeration<['manual', 'referral']> &
+      Schema.Attribute.DefaultTo<'manual'>;
     startsAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1198,6 +1204,131 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     variants: Schema.Attribute.Component<'product.variant', true>;
     warranty: Schema.Attribute.String;
+  };
+}
+
+export interface ApiReferralProgramReferralProgram
+  extends Struct.SingleTypeSchema {
+  collectionName: 'referral_programs';
+  info: {
+    description: 'Refer-a-friend rewards: how many friends a customer must invite and the discount they earn';
+    displayName: 'Referral program';
+    pluralName: 'referral-programs';
+    singularName: 'referral-program';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::referral-program.referral-program'
+    > &
+      Schema.Attribute.Private;
+    maxDiscount: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    minSubtotal: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    qualifyOn: Schema.Attribute.Enumeration<
+      ['first_delivered_order', 'signup']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'first_delivered_order'>;
+    referralsRequired: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    repeatable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    rewardType: Schema.Attribute.Enumeration<['percent', 'fixed']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'percent'>;
+    rewardValidDays: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<90>;
+    rewardValue: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<10>;
+    terms: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReferralReferral extends Struct.CollectionTypeSchema {
+  collectionName: 'referrals';
+  info: {
+    description: "A friend who signed up with a customer's referral link. Set the status to Rejected to stop a suspicious referral counting.";
+    displayName: 'Referral';
+    pluralName: 'referrals';
+    singularName: 'referral';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::referral.referral'
+    > &
+      Schema.Attribute.Private;
+    note: Schema.Attribute.Text;
+    orderNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    qualifiedAt: Schema.Attribute.DateTime;
+    referee: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    referralStatus: Schema.Attribute.Enumeration<
+      ['pending', 'qualified', 'rejected']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'pending'>;
+    referrer: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1923,6 +2054,7 @@ export interface PluginUsersPermissionsUser
     phone: Schema.Attribute.String;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    referralCode: Schema.Attribute.String & Schema.Attribute.Unique;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
     role: Schema.Attribute.Relation<
       'manyToOne',
@@ -1967,6 +2099,8 @@ declare module '@strapi/strapi' {
       'api::payment.payment': ApiPaymentPayment;
       'api::policy.policy': ApiPolicyPolicy;
       'api::product.product': ApiProductProduct;
+      'api::referral-program.referral-program': ApiReferralProgramReferralProgram;
+      'api::referral.referral': ApiReferralReferral;
       'api::review.review': ApiReviewReview;
       'api::shipping-method.shipping-method': ApiShippingMethodShippingMethod;
       'api::shipping-zone.shipping-zone': ApiShippingZoneShippingZone;

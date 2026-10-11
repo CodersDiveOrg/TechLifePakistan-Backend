@@ -1,6 +1,7 @@
 import type { Core } from '@strapi/strapi';
 import { sendStatusEmail } from '../lib/emails';
 import { afterCommit, createOrderManager, currentActor, silentStatusChanges } from '../lib/order-manager';
+import { issueReferralRewards, qualifyReferralForOrder } from '../lib/referrals';
 
 /** Recomputes a product's average rating + review count from its *published* (approved) reviews. */
 async function refreshProductRating(strapi: Core.Strapi, productDocumentId?: string | null) {
@@ -71,8 +72,32 @@ export function registerLifecycles(strapi: Core.Strapi) {
             if (sentTo) await manager.logEvent(id, 'email', `“${status}” email sent to ${sentTo}`, { actor: 'System' });
           });
         }
+        if (status === 'delivered') afterCommit(strapi, () => qualifyReferralForOrder(strapi, id));
       }
       await strapi.service('api::order.order').restockIfNeeded(id);
+    },
+  });
+
+  // A qualified referral (automatic, or set by an admin) may complete a reward for the referrer.
+  const rewardReferrer = async (referralId?: number) => {
+    if (!referralId) return;
+    const referral = await strapi.db.query('api::referral.referral').findOne({ where: { id: referralId }, select: ['referralStatus'], populate: { referrer: { select: ['id'] } } });
+    if (referral?.referralStatus === 'qualified' && referral.referrer?.id) {
+      const referrerId = referral.referrer.id as number;
+      afterCommit(strapi, () => issueReferralRewards(strapi, referrerId));
+    }
+  };
+  strapi.db.lifecycles.subscribe({
+    models: ['api::referral.referral'],
+    beforeUpdate(event) {
+      const data = event.params.data as { referralStatus?: string; qualifiedAt?: unknown } | undefined;
+      if (data?.referralStatus === 'qualified' && !data.qualifiedAt) data.qualifiedAt = new Date();
+    },
+    async afterCreate(event) {
+      await rewardReferrer(event.result?.id);
+    },
+    async afterUpdate(event) {
+      await rewardReferrer(event.result?.id);
     },
   });
 

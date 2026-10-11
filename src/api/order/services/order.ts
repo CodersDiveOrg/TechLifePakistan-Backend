@@ -160,7 +160,7 @@ export default factories.createCoreService(ORDER, ({ strapi }) => ({
       let discount = 0;
       let couponCode: string | undefined;
       if (input.couponCode?.trim()) {
-        const result = await strapi.service('api::coupon.coupon').evaluate(input.couponCode, subtotal);
+        const result = await strapi.service('api::coupon.coupon').evaluate(input.couponCode, subtotal, userId);
         if (!result.valid) throw new ValidationError(result.message);
         discount = result.discount;
         couponCode = result.code;

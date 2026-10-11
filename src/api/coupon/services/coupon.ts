@@ -11,13 +11,18 @@ export interface CouponResult {
 
 export default factories.createCoreService('api::coupon.coupon', ({ strapi }) => ({
   /** Checks a coupon code against a cart subtotal and returns the discount it gives. Never throws. */
-  async evaluate(rawCode: string, subtotal: number): Promise<CouponResult> {
+  async evaluate(rawCode: string, subtotal: number, userId?: number): Promise<CouponResult> {
     const code = (rawCode ?? '').trim().toUpperCase();
     const fail = (message: string): CouponResult => ({ valid: false, code, discount: 0, message });
     if (!code) return fail('Enter a coupon code.');
 
-    const coupon = await strapi.db.query('api::coupon.coupon').findOne({ where: { code } });
+    const coupon = await strapi.db.query('api::coupon.coupon').findOne({ where: { code }, populate: { owner: { select: ['id'] } } });
     if (!coupon || !coupon.active) return fail('This coupon code is not valid.');
+    // Personal coupons (e.g. referral rewards) only work for their owner's account.
+    if (coupon.owner) {
+      if (!userId) return fail('Sign in to use this coupon.');
+      if (coupon.owner.id !== userId) return fail('This coupon belongs to another account.');
+    }
 
     const now = Date.now();
     if (coupon.startsAt && new Date(coupon.startsAt).getTime() > now) return fail('This coupon is not active yet.');

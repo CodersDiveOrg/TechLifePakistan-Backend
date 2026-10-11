@@ -1,0 +1,71 @@
+{
+  "kind": "singleType",
+  "collectionName": "referral_programs",
+  "info": {
+    "singularName": "referral-program",
+    "pluralName": "referral-programs",
+    "displayName": "Referral program",
+    "description": "Refer-a-friend rewards: how many friends a customer must invite and the discount they earn"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "referralsRequired": {
+      "type": "integer",
+      "required": true,
+      "default": 5,
+      "min": 1
+    },
+    "qualifyOn": {
+      "type": "enumeration",
+      "enum": [
+        "first_delivered_order",
+        "signup"
+      ],
+      "default": "first_delivered_order",
+      "required": true
+    },
+    "rewardType": {
+      "type": "enumeration",
+      "enum": [
+        "percent",
+        "fixed"
+      ],
+      "default": "percent",
+      "required": true
+    },
+    "rewardValue": {
+      "type": "decimal",
+      "required": true,
+      "default": 10,
+      "min": 0
+    },
+    "maxDiscount": {
+      "type": "decimal",
+      "min": 0
+    },
+    "minSubtotal": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "rewardValidDays": {
+      "type": "integer",
+      "default": 90,
+      "min": 1
+    },
+    "repeatable": {
+      "type": "boolean",
+      "default": true
+    },
+    "terms": {
+      "type": "text"
+    }
+  }
+}

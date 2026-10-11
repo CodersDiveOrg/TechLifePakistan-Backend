@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "referrals",
+  "info": {
+    "singularName": "referral",
+    "pluralName": "referrals",
+    "displayName": "Referral",
+    "description": "A friend who signed up with a customer's referral link. Set the status to Rejected to stop a suspicious referral counting."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "referrer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "referee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "referralStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "qualified",
+        "rejected"
+      ],
+      "default": "pending",
+      "required": true
+    },
+    "qualifiedAt": {
+      "type": "datetime"
+    },
+    "orderNumber": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}

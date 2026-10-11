@@ -248,3 +248,28 @@ export async function sendPaymentSubmittedAlert(strapi: Core.Strapi, orderNumber
     strapi.log.error(`[email] payment alert failed: ${(error as Error).message}`);
   }
 }
+
+/** Tells a customer they earned a refer-a-friend reward. */
+export async function sendReferralRewardEmail(strapi: Core.Strapi, to: string, codes: string[], reward: string, validDays: number | null) {
+  try {
+    const store = await storeInfo(strapi);
+    const codeList = codes
+      .map((c) => `<p style="margin:12px 0;font-size:26px;font-weight:bold;letter-spacing:3px;font-family:'Courier New',monospace;color:#2f5bea">${esc(c)}</p>`)
+      .join('');
+    await send(
+      strapi,
+      to,
+      `You earned a reward — ${reward} at ${store.name}`,
+      layout(
+        store,
+        'Thanks for spreading the word!',
+        `<p style="font-size:14px;line-height:1.6">Your friends have joined ${esc(store.name)}, so you’ve earned <b>${esc(reward)}</b>. Use ${codes.length > 1 ? 'these codes' : 'this code'} at checkout while signed in to your account:</p>
+        ${codeList}
+        <p style="font-size:13px;line-height:1.6;color:#6b7280">Each code works once and only on your account${validDays ? `, and expires in ${validDays} days` : ''}.</p>
+        ${store.storefront ? `<p><a href="${esc(store.storefront)}/account?tab=referrals" style="display:inline-block;background:#2f5bea;color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-size:14px">View my rewards</a></p>` : ''}`
+      )
+    );
+  } catch (error) {
+    strapi.log.error(`[email] referral reward email failed: ${(error as Error).message}`);
+  }
+}

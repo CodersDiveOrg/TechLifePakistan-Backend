@@ -15,6 +15,8 @@ export default (plugin: { contentTypes: Record<string, any> }) => {
     otpHash: { type: 'string', private: true, searchable: false },
     otpExpires: { type: 'datetime', private: true },
     otpAttempts: { type: 'integer', private: true, default: 0 },
+    // Personal refer-a-friend code (generated on first use — see src/lib/referrals.ts).
+    referralCode: { type: 'string', unique: true },
   });
   return plugin;
 };

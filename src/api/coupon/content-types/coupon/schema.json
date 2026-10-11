@@ -5,7 +5,7 @@
     "singularName": "coupon",
     "pluralName": "coupons",
     "displayName": "Coupon",
-    "description": "Discount codes customers can apply in the cart (codes must be UPPERCASE)"
+    "description": "Discount codes customers can apply in the cart (codes must be UPPERCASE). A coupon with an Owner only works for that customer's account."
   },
   "options": {
     "draftAndPublish": false
@@ -59,6 +59,19 @@
     "active": {
       "type": "boolean",
       "default": true
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "manual",
+        "referral"
+      ],
+      "default": "manual"
     }
   }
 }
